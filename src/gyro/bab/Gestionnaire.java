@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Rafael
+ * @author F.M.
  */
 public class Gestionnaire extends Utilisateur {
     private LocalDate dateEmbauche;
@@ -18,9 +18,8 @@ public class Gestionnaire extends Utilisateur {
 
 
     private static ArrayList<Usager> usagers = new ArrayList<>();
-//    ArrayList<Usager> usagers = new ArrayList<>();
+    // ArrayList<Usager> usagers = new ArrayList<>();
     private static ArrayList<Gyropode> gyropode = new ArrayList<>();
-    
     
     public LocalDate getLocalDateEmbauche() {
         return dateEmbauche;

@@ -12,7 +12,8 @@ import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-
+import java.sql.Connection; // POUR LA CONNEXION JDBC
+import org.hibernate.Session; // pour la connexion hibernta
 
 /**
  *
@@ -20,7 +21,28 @@ import java.util.concurrent.TimeUnit;
  */
 public class GyroBab {
     public static void main(String[] args) {
-         //OBJETS
+        // -------------------------------------------------
+        // Obtenir une connexion à la base de données
+        // -------------------------------------------------
+        Connection connection = DatabaseConnection.getConnection();
+
+        if (connection != null) 
+        {
+            System.out.println("Connexion réussie !");
+        } 
+        else 
+        {
+            System.err.println("Échec de la connexion à la base de données.");
+        }
+
+        // -------------------------------------------------
+        // Créez une classe pour tester la connexion avec Hibernate 
+        // -------------------------------------------------
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        System.out.println("Hibernate est configuré avec succès !");
+        session.close();
+        
+        //OBJETS
         Scanner sc = new Scanner(System.in);
         Administrateur adm = new Administrateur("rafael1893porto@gmail.com","rdpt03","Rafael","Alves");
         /*
